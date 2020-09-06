@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile-server
+  proxy:
+    build:
+      context: .
+      dockerfile: Dockerfile-envoy
+    external_links:
+      - server:server.grpc.local
+    ports:
+      - "5000:5000"

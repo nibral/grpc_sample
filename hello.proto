@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package hello;
+
+option go_package = ".;main";
+
+message HelloRequest {
+
+}
+
+message HelloReply {
+  string msg = 1;
+}
+
+service Hello {
+  rpc SayHello (HelloRequest) returns (HelloReply) {}
+}
